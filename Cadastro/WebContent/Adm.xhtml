@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Lista De Cadastrados</title>
+</h:head> 
+<h:body>
+	<h1>Lista De Cadastrados</h1>
+	<h:outputLabel value="Olá" />
+	<h:form>
+		<h:outputLabel value="Pesquisar por:" />
+		<h:inputText value="#{dadosMBean.dados.nome}" />
+		<h:commandButton value="Pesquisar" action="#{dadosMBean.pesquisarPor}" />
+	</h:form>
+	<h:form>
+		<h:dataTable border = "1" cellspacing="0" id = "tb_listaDeCadastros"  var = "listaTb" value = "#{dadosMBean.listaDados}">
+			<h:column>
+				<f:facet name = "header">Nome</f:facet>	
+				<h:inputText id = "txt_lnome" value = "#{listaTb.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Endereço</f:facet>	
+				<h:inputText id = "txt_lendereco" value = "#{listaTb.endereco}" />
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Bairro</f:facet>
+				<h:inputText id = "txt_lbairro" value = "#{listaTb.bairro}" />	
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Cidade</f:facet>
+				<h:inputText id = "txt_lcidade" value = "#{listaTb.cidade}" />	
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Estado</f:facet>
+				<h:inputText id = "txt_lestado" value = "#{listaTb.estado}" />	
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Email</f:facet>
+				<h:inputText id = "txt_lemail" value = "#{listaTb.email}" />	
+			</h:column>
+			<h:column>
+				<f:facet name = "header">Telefone</f:facet>
+				<h:inputText id = "txt_ltelefone" value = "#{listaTb.telefone}" />	
+			</h:column>
+			<h:column>
+				<f:facet name="header">Excluir</f:facet>
+				<h:commandLink action="#{dadosMBean.remover(listaTb)}" value="Excluir" />	
+			</h:column>
+			<h:column>
+				<f:facet name="header">Alterar</f:facet>
+				<h:commandLink action="#{dadosMBean.alterar(listaTb)}" value="Alterar" />	
+			</h:column>
+		</h:dataTable>
+		
+	</h:form>	
+</h:body> 
+</html>

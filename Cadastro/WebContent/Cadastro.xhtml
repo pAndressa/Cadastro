@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+	<title>Cadastro de Dados Pessoais</title>
+</h:head> 
+<h:body> 
+	<h1>Cadastro De Dados Pessoais</h1>
+	<h:form>
+	<h:messages id="messages"/>
+		<h:outputLabel value="Nome:" />
+		<h:inputText id = "txt_nome" value="#{dadosMBean.dados.nome}" /><br />
+		<h:outputLabel value="Endereço:" />
+		<h:inputText id = "txt_endereco" value="#{dadosMBean.dados.endereco}" /><br />
+		<h:outputLabel value="Bairro:" />
+		<h:inputText id = "txt_bairro" value="#{dadosMBean.dados.bairro}" /><br />
+		<h:outputLabel value="Cidade:" />
+		<h:inputText id = "txt_cidade" value="#{dadosMBean.dados.cidade}" /><br />
+		<h:outputLabel value="Estado:" />
+		<h:selectOneMenu value="#{dadosMBean.dados.estado}">
+			<f:selectItem itemValue="SP" itemLabel="SP"/>
+			<f:selectItem itemValue="PE" itemLabel="PE"/>
+			<f:selectItem itemValue="PR" itemLabel="PR"/>
+			<f:selectItem itemValue="SC" itemLabel="SC"/>
+		</h:selectOneMenu><br />
+		<h:outputLabel value="Email:" />
+		<h:inputText id = "txt_email" value="#{dadosMBean.dados.email}" /><br />	
+		<h:outputLabel value="Telefone:" />
+		<h:inputText id = "txt_telefone" value="#{dadosMBean.dados.telefone}" /><br />
+		<h:commandButton value="Cadastrar" action = "#{dadosMBean.salvar(dadosMBean.dados)}" />	
+	</h:form>
+	<h:form>
+		<h:commandLink value="Clique para ver usuários cadastrados" action = "/Adm" />
+	</h:form>
+</h:body> 
+</html>
